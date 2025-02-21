@@ -16,7 +16,7 @@ export const remotePost = async(formdata,path,stream=false) =>{
     try {
         const resp = await axios.post(`${API_ENDPOINT}/${path}`,JSON.stringify(formdata),args);
         
-        if (resp.statusText === 'OK'){
+        if (resp.status === 200){
             return stream?resp.body:resp.data
         } else{
             console.log(`Server error:${resp.status}`)
